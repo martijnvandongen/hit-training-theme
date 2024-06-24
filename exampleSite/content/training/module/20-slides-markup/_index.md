@@ -1,5 +1,6 @@
 ---
 title: "Slides Markup"
+layout: single
 ---
 
 [Open Slide Deck 1](deck1)
