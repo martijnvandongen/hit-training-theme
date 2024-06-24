@@ -1,0 +1,245 @@
+@import "bootstrap-5.3.3/bootstrap";
+
+
+
+.btn-purple {
+    @include button-variant(
+        #6f42c1, 
+        darken(#6f42c1, 7.5%), 
+        white, 
+        darken(#6f42c1, 20%), 
+        darken(#6f42c1, 27.5%), 
+        white
+    );
+}
+
+.custom-callout-purple .form-check-input:checked {
+    background-color: #6f42c1;
+    border-color: #6f42c1;
+}
+
+.question {
+    font-size: 1.2em;
+}
+
+/* img full width */
+.content img {
+    width: 100%;
+    margin-bottom: 1rem;
+}
+/* tables in content */ 
+.content table {
+    border: 1px solid $gray-400;
+    margin-bottom: 1rem;
+}
+.content table th, .content table td {
+    padding: 5px 10px;
+    border: 1px solid $gray-400;
+
+}
+.content table th {
+    background-color: $gray-200;
+}
+.content table tr:nth-child(even) {
+    background-color: $gray-100;
+}
+
+.content > div {
+    margin-bottom: 1rem;
+}
+
+.content .overflow {
+    overflow-y: auto;
+    margin-bottom: 1rem;
+}
+.content .overflow * {
+    margin-bottom: 0;
+}
+.content .overflow td {
+    text-wrap: nowrap;
+}
+.content .overflow img {
+    width: auto;
+}
+
+/* inline code */ 
+.content p code {
+    color: $gray-800;
+}
+
+.sidebar {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+
+.sidebar li {
+    margin: 0 0 5px 0;
+    padding: 0;
+}
+
+.sidebar li a {
+    color: #444;
+    text-decoration: none;
+}
+.sidebar li.active a {
+    color: #444;
+    text-decoration: underline;
+}
+.sidebar li a:active {
+    color: black;
+    text-decoration: underline;
+}
+
+.sidebar li a:hover {
+    text-decoration: underline;
+}
+
+.content blockquote, .custom-callout {
+    padding: 16px;
+    background-color: $gray-100;
+    border-left: 5px solid $gray-300;
+    margin-bottom: 1rem !important;
+}
+.content blockquote p {
+    margin: 0;
+}
+.custom-callout-info, .custom-callout-blue {
+    background-color: $blue-100;
+    border-left: 5px solid $blue-300;
+}
+.custom-callout-warning, .custom-callout-orange {
+    background-color: $orange-100;
+    border-left: 5px solid $orange-300;
+}
+.custom-callout-danger, .custom-callout-red {
+    background-color: $red-100;
+    border-left: 5px solid $red-300;
+}
+.custom-callout-success, .custom-callout-green {
+    background-color: $green-100;
+    border-left: 5px solid $green-300;
+}
+.custom-callout-yellow {
+    background-color: $yellow-100;
+    border-left: 5px solid $yellow-300;
+}
+.custom-callout-purple {
+    background-color: $purple-100;
+    border-left: 5px solid $purple-300;
+}
+
+/* https://bootstrap-menu.com/detail-megamenu.html */
+.navbar .megamenu{ padding: 1rem; }
+@media all and (min-width: 992px) {
+    .navbar .has-megamenu{position:static!important;}
+    .navbar .megamenu{left:0; right:0; width:100%; margin-top:0; border: 0; background-color: #eee;}
+}	
+@media(max-width: 991px){
+    .navbar.fixed-top .navbar-collapse, .navbar.sticky-top .navbar-collapse{
+        overflow-y: auto;
+            max-height: 90vh;
+            margin-top:10px;
+    }
+}
+
+.highlight {
+    overflow-x: auto;
+    max-height: 300px;
+    overflow-y: auto;
+    background: $gray-100;
+    padding: 10px;
+    margin-bottom: 1rem;
+}
+pre {
+    margin: 0;
+}
+
+/* Background */ .bg {   }
+/* PreWrapper */ .chroma {  }
+/* Other */ .chroma .x {  }
+/* Error */ .chroma .err {  }
+/* CodeLine */ .chroma .cl {  }
+/* LineLink */ .chroma .lnlinks { outline: none; text-decoration: none; color: inherit }
+/* LineTableTD */ .chroma .lntd { vertical-align: top; padding: 0; margin: 0; border: 0; }
+/* LineTable */ .chroma .lntable { border-spacing: 0; padding: 0; margin: 0; border: 0; }
+/* LineHighlight */ .chroma .hl { background-color: #e5e5e5 }
+/* LineNumbersTable */ .chroma .lnt { white-space: pre; -webkit-user-select: none; user-select: none; margin-right: 0.4em; padding: 0 0.4em 0 0.4em;color: #7f7f7f }
+/* LineNumbers */ .chroma .ln { white-space: pre; -webkit-user-select: none; user-select: none; margin-right: 0.4em; padding: 0 0.4em 0 0.4em;color: #7f7f7f }
+/* Line */ .chroma .line { display: flex; }
+/* Keyword */ .chroma .k { color: #0000ff }
+/* KeywordConstant */ .chroma .kc { color: #0000ff }
+/* KeywordDeclaration */ .chroma .kd { color: #0000ff }
+/* KeywordNamespace */ .chroma .kn { color: #0000ff }
+/* KeywordPseudo */ .chroma .kp { color: #0000ff }
+/* KeywordReserved */ .chroma .kr { color: #0000ff }
+/* KeywordType */ .chroma .kt { color: #2b91af }
+/* Name */ .chroma .n {  }
+/* NameAttribute */ .chroma .na {  }
+/* NameBuiltin */ .chroma .nb {  }
+/* NameBuiltinPseudo */ .chroma .bp {  }
+/* NameClass */ .chroma .nc { color: #2b91af }
+/* NameConstant */ .chroma .no {  }
+/* NameDecorator */ .chroma .nd {  }
+/* NameEntity */ .chroma .ni {  }
+/* NameException */ .chroma .ne {  }
+/* NameFunction */ .chroma .nf {  }
+/* NameFunctionMagic */ .chroma .fm {  }
+/* NameLabel */ .chroma .nl {  }
+/* NameNamespace */ .chroma .nn {  }
+/* NameOther */ .chroma .nx {  }
+/* NameProperty */ .chroma .py {  }
+/* NameTag */ .chroma .nt {  }
+/* NameVariable */ .chroma .nv {  }
+/* NameVariableClass */ .chroma .vc {  }
+/* NameVariableGlobal */ .chroma .vg {  }
+/* NameVariableInstance */ .chroma .vi {  }
+/* NameVariableMagic */ .chroma .vm {  }
+/* Literal */ .chroma .l {  }
+/* LiteralDate */ .chroma .ld {  }
+/* LiteralString */ .chroma .s { color: #a31515 }
+/* LiteralStringAffix */ .chroma .sa { color: #a31515 }
+/* LiteralStringBacktick */ .chroma .sb { color: #a31515 }
+/* LiteralStringChar */ .chroma .sc { color: #a31515 }
+/* LiteralStringDelimiter */ .chroma .dl { color: #a31515 }
+/* LiteralStringDoc */ .chroma .sd { color: #a31515 }
+/* LiteralStringDouble */ .chroma .s2 { color: #a31515 }
+/* LiteralStringEscape */ .chroma .se { color: #a31515 }
+/* LiteralStringHeredoc */ .chroma .sh { color: #a31515 }
+/* LiteralStringInterpol */ .chroma .si { color: #a31515 }
+/* LiteralStringOther */ .chroma .sx { color: #a31515 }
+/* LiteralStringRegex */ .chroma .sr { color: #a31515 }
+/* LiteralStringSingle */ .chroma .s1 { color: #a31515 }
+/* LiteralStringSymbol */ .chroma .ss { color: #a31515 }
+/* LiteralNumber */ .chroma .m {  }
+/* LiteralNumberBin */ .chroma .mb {  }
+/* LiteralNumberFloat */ .chroma .mf {  }
+/* LiteralNumberHex */ .chroma .mh {  }
+/* LiteralNumberInteger */ .chroma .mi {  }
+/* LiteralNumberIntegerLong */ .chroma .il {  }
+/* LiteralNumberOct */ .chroma .mo {  }
+/* Operator */ .chroma .o {  }
+/* OperatorWord */ .chroma .ow { color: #0000ff }
+/* Punctuation */ .chroma .p {  }
+/* Comment */ .chroma .c { color: #008000 }
+/* CommentHashbang */ .chroma .ch { color: #008000 }
+/* CommentMultiline */ .chroma .cm { color: #008000 }
+/* CommentSingle */ .chroma .c1 { color: #008000 }
+/* CommentSpecial */ .chroma .cs { color: #008000 }
+/* CommentPreproc */ .chroma .cp { color: #0000ff }
+/* CommentPreprocFile */ .chroma .cpf { color: #0000ff }
+/* Generic */ .chroma .g {  }
+/* GenericDeleted */ .chroma .gd {  }
+/* GenericEmph */ .chroma .ge { font-style: italic }
+/* GenericError */ .chroma .gr {  }
+/* GenericHeading */ .chroma .gh { font-weight: bold }
+/* GenericInserted */ .chroma .gi {  }
+/* GenericOutput */ .chroma .go {  }
+/* GenericPrompt */ .chroma .gp { font-weight: bold }
+/* GenericStrong */ .chroma .gs { font-weight: bold }
+/* GenericSubheading */ .chroma .gu { font-weight: bold }
+/* GenericTraceback */ .chroma .gt {  }
+/* GenericUnderline */ .chroma .gl {  }
+/* TextWhitespace */ .chroma .w {  }
+
+

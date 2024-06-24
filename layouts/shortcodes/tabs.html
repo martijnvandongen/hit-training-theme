@@ -1,0 +1,32 @@
+{{ with .Inner }}{{/* don't do anything, just call it */}}{{ end }}
+{{ $id := substr (md5 .Inner) 0 16 }}
+<div>
+    <ul class="nav nav-tabs" id="tabs{{$id}}" role="tablist">
+    {{ range $idx, $tab := .Scratch.Get "tabs" }}
+        <li class="nav-item">
+            <button 
+                class="nav-link{{ cond (eq $idx 0) " active" ""}}" 
+                data-bs-toggle="tab"
+                data-bs-target="#tab-{{$id}}-{{ .name }}"  
+                type="button"
+                id="button{{$id}}-{{ .name }}" 
+                aria-controls="tab-{{$id}}-{{ .name }}"
+            >
+                {{ .name }}
+            </button>
+        </li>
+    {{ end }}
+    </ul>
+    <div class="tab-content">
+        {{ range $idx, $tab := .Scratch.Get "tabs" }}
+        <div 
+            id="tab-{{$id}}-{{ .name }}" 
+            data-tab-item="{{ .name }}" 
+            data-tab-group="tab-{{$id}}-{{ .name }}" 
+            class="tab-pane fade{{ cond (eq $idx 0) " show active" ""}}"
+        >
+            {{ .content }}
+        </div>
+        {{ end }}
+    </div>
+</div>

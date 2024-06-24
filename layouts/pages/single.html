@@ -1,0 +1,47 @@
+{{ define "main" }}
+
+{{ $renderSidebar := false }}
+
+{{ $currentPage := .RelPermalink }}
+
+{{ if $renderSidebar }}
+<div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+    <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="offcanvasExampleLabel">Browse {{ .Page.Parent.LinkTitle }}</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body">
+        <ul class="sidebar">
+            {{ range sort .Page.Parent.Pages "File.Path"}}
+            <li class="{{ if eq $currentPage .RelPermalink }}active{{end}} "><a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></li>
+            {{ end }}
+        </ul>
+    </div>
+</div>
+{{end}}
+<div class="mt-3">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 col-lg-3">
+                {{ if $renderSidebar }}
+                <ul class="sidebar d-none d-lg-block">
+                    {{ range sort .Page.Parent.Pages "File.Path"}}
+                    <li class="{{ if eq $currentPage .RelPermalink }}active{{end}} "><a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></li>
+                    {{ end }}
+                </ul>
+                <a class="btn btn-sm btn-dark d-lg-none mb-2" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample">
+                    Browse {{ .Page.Parent.LinkTitle }}
+                </a>
+                {{end}}
+            </div>
+            <div class="col-12 col-lg-7">
+                <h1>{{ .Title }}</h1>
+                <div class="content">
+                    {{ .Content }}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{{ end }}

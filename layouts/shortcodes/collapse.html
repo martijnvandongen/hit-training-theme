@@ -1,0 +1,15 @@
+{{- /*
+    Usage: `collapse "Title" `
+  */ -}}
+
+{{- $title := .Get 0 | default "collapse" -}}
+{{ $id := substr (md5 .Inner) 0 16 }}
+
+<p class="d-inline-flex">
+    <a class="btn btn-outline-primary btn-sm" data-bs-toggle="collapse" href="#collapse{{$id}}" role="button" aria-expanded="false" aria-controls="collapse{{$id}}">
+      {{ $title }} <i class="bi bi-arrow-bar-down"></i>
+    </a>
+</p>
+<div class="collapse" id="collapse{{$id}}" style="margin-bottom: 1rem;">
+  {{ .Inner | markdownify }}
+</div>

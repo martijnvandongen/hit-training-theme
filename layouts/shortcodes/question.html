@@ -1,0 +1,65 @@
+{{ $data := unmarshal .Inner }}
+{{ $shuffle_answers := $data.shuffle_answers | default true }}
+{{ $answer_validation := $data.answer_validation | default true }}
+{{ $id := substr (md5 .Inner) 0 16 }}
+{{ $answers := slice }}
+{{ $counter := 0 }}
+{{ $correct := 0 }}
+{{ if $shuffle_answers }}
+    {{ $answers = shuffle $data.answers }}
+{{ else }}
+    {{ $answers = $data.answers }}
+{{ end }}
+{{ range $data.answers }}
+    {{ if .correct }}
+        {{ $correct = add $correct 1 }}
+    {{ end }}
+{{ end }}
+<div class="custom-callout custom-callout-purple mb-2">
+<form class="" id="form-{{ $id }}" {{ if $answer_validation }}answer_validation="answer_validation"{{end}}>
+<div class="question">{{ $data.question | markdownify }}</div>
+{{ if gt $correct 1 }}
+    {{ range $answers }}
+        {{ $counter = add $counter 1 }}
+<div class="form-check {{if .correct }} correct{{else}} incorrect{{end}} my-2">
+<input class="form-check-input" type="checkbox" value="checked" id="a{{$id}}{{$counter}}">
+<label class="form-check-label" for="a{{$id}}{{$counter}}">{{ .answer | markdownify }}</label>
+</div>
+    {{ end }} <!-- /range $answers -->
+{{ else }}
+    {{ range $answers }}
+        {{ $counter = add $counter 1 }}
+<div class="form-check {{if .correct }} correct{{else}} incorrect{{end}} my-2">
+<input class="form-check-input" type="radio" name="a{{$id}}" id="a{{$id}}{{$counter}}">
+<label class="form-check-label" for="a{{$id}}{{$counter}}">{{ .answer | markdownify }}</label>
+</div>
+    {{ end }} <!-- /range $answers -->
+{{ end }}
+<div id="message-{{$id}}"></div>
+<div class="d-none fst-italic my-2" id="explanation-{{ $id }}">
+{{ $data.explanation | markdownify }}
+</div>
+<button class="btn btn-purple my-2" type="button" id="button-{{$id}}">Check</button>
+</form>
+
+<script>
+$("#button-{{$id}}").on( "click", function() {
+    $("#message-{{$id}}").html(""); // clear message field
+    if ($('#form-{{$id}}').attr('answer_validation')) {
+        let need = "{{ $correct }}";
+        if (need != $('#form-{{$id}}').find(".form-check-input:checked").length) {
+            options = (need > 1) ? " answers" : " answer"
+            $("#message-{{$id}}").html("Choose " + need + options + "!");
+            return false;
+        }
+    }
+    $("#explanation-{{$id}}").removeClass("d-none");
+    $("#form-{{$id}}").find(".correct").addClass("fw-bold");
+    $("#form-{{$id}}").find(".form-check-input").click(function(evt){evt.preventDefault()});
+    $("#form-{{$id}}").find(".correct").find(".form-check-input:checked").parent(".form-check").addClass("text-success");
+    $("#form-{{$id}}").find(".incorrect").find(".form-check-input:checked").parent(".form-check").addClass("text-danger");
+    $("#form-{{$id}}").find(".form-check-input").addClass("fw-bold");
+    $(this).hide();
+});
+</script>
+</div>

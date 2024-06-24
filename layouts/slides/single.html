@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+        <style>
+        section {
+            --r-heading-text-transform: none;
+        }
+        </style>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.1.0/reveal.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.1.0/theme/white.min.css">
+        <style>
+
+        table {
+            font-size: 0.8em;
+        }
+        .has-dark-background h1,
+        .has-dark-background h2,
+        .has-dark-background h3,
+        .has-dark-background h4,
+        .has-dark-background h5 {
+            text-shadow: 2px 2px 3px #000;
+        }
+        /*
+        Monokai style - ported by Luigi Maselli - http://grigio.org
+        */
+        /*
+
+        Visual Studio-like style based on original C# coloring by Jason Diamond <jason@diamond.name>
+
+        */
+        .hljs {
+            background: white;
+            color: black;
+        }
+
+        .hljs-comment,
+        .hljs-quote,
+        .hljs-variable {
+            color: #008000;
+        }
+
+        .hljs-keyword,
+        .hljs-literal,
+        .hljs-selector-tag,
+        /*.hljs-built_in, looks ugly in python*/
+        .hljs-name,
+        .hljs-tag {
+            color: #00f;
+        }
+
+        .hljs-title {
+            color: black;
+        }
+
+        .hljs-string,
+        .hljs-section,
+        .hljs-attribute,
+        .hljs-template-tag,
+        .hljs-template-variable,
+        .hljs-type,
+        .hljs-addition {
+            color: #a31515;
+        }
+
+        .hljs-deletion,
+        .hljs-selector-attr,
+        .hljs-selector-pseudo,
+        .hljs-meta {
+            color: #2b91af;
+        }
+
+        .hljs-doctag {
+            color: #808080;
+        }
+
+        /* Looks ugly with yaml */
+        /* .hljs-attr {
+            color: #f00;
+        } */
+
+        .hljs-symbol,
+        .hljs-bullet,
+        .hljs-link {
+            color: #00b0e8;
+        }
+
+        .hljs-emphasis {
+            font-style: italic;
+        }
+
+        .hljs-strong {
+            font-weight: bold;
+        }
+        @media print {
+            .backbutton {
+                visibility: hidden;
+            }
+        }
+        img { max-width: 90%; max-height: 100%; }
+        .backbutton {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            margin: 10px;
+            font-size: 10pt;
+            font-family: system-ui;
+            
+        }
+        .backbutton a {
+            display: inline-block;
+            background: transparent;
+            border: 1px solid #00000011;
+            border-radius: 5px;
+            padding: 10px;
+            color: #00000011;
+            text-decoration: none;
+        }
+        .backbutton a:hover {
+            color: #000;
+            border: 1px solid #000;
+            background: #ffffff55;
+        }
+        </style>
+        <title>Slides: {{ .Title }}</title>
+    </head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+                <section data-markdown>
+                    <textarea data-template>
+                        {{ htmlUnescape .RawContent }}
+                    </textarea>
+                </section>
+			</div>
+        </div>
+        <div class="backbutton">
+            <a href="../">Close Slides</a>
+            <a href="?print-pdf">Print View</a>
+            <a href="#/0">First</a>
+            <a href="#/999">Last</a>
+        </div>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.1.0/reveal.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.1.0/plugin/notes/notes.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.1.0/plugin/zoom/zoom.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.1.0/plugin/highlight/highlight.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.1.0/plugin/markdown/markdown.min.js"></script>
+		<script>
+			Reveal.initialize({
+                width: 1200,
+                height: 700,
+                progress: true,
+                slideNumber: true,
+                controlsLayout: 'edges',
+                transition: 'slide',
+                backgroundTransition: 'zoom',
+                hash: true,
+                markdown: {
+                    smartypants: true
+                },
+                plugins: [ RevealMarkdown, RevealHighlight, RevealNotes, RevealZoom ]
+            });
+        </script>
+	</body>
+</html>
+
