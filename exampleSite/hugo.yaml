@@ -12,6 +12,6 @@ pygmentsUseClasses: true
 pygmentsOptions: "linenos=table"
 
 params:
-  gitBaseUrl: "https://github.com/martijnvandongen/hit-training-theme/tree/main/exampleSite/" # end with /, empty or remove element to hide button
+  gitBaseUrl: "https://github.com/martijnvandongen/hit-training-theme/tree/main/exampleSite/content" # end with /, empty or remove element to hide button
 
 theme: ../..
