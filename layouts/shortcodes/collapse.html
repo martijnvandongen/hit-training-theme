@@ -6,10 +6,20 @@
 {{ $id := substr (md5 .Inner) 0 16 }}
 
 <p class="d-inline-flex">
-    <a class="btn btn-outline-primary btn-sm" data-bs-toggle="collapse" href="#collapse{{$id}}" role="button" aria-expanded="false" aria-controls="collapse{{$id}}">
-      {{ $title }} <i class="bi bi-arrow-bar-down"></i>
+    <a class="" data-bs-toggle="collapse" href="#collapse{{$id}}" role="button" aria-expanded="false" aria-controls="collapse{{$id}}" style="text-decoration: none;">
+      <i class="bi bi-caret-right-fill" id="collapse-icon{{$id}}"></i> {{ $title }} 
     </a>
 </p>
 <div class="collapse" id="collapse{{$id}}" style="margin-bottom: 1rem;">
   {{ .Inner | markdownify }}
 </div>
+
+<script>
+const myCollapsible = document.getElementById('collapse{{$id}}')
+myCollapsible.addEventListener('hide.bs.collapse', event => {
+  $('#collapse-icon{{$id}}').replaceWith('<i class="bi bi-caret-right-fill" id="collapse-icon{{$id}}">');
+})
+myCollapsible.addEventListener('show.bs.collapse', event => {
+  $('#collapse-icon{{$id}}').replaceWith('<i class="bi bi-caret-down-fill" id="collapse-icon{{$id}}">');
+})
+</script>
