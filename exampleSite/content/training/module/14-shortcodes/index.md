@@ -77,6 +77,26 @@ Here tab content, can be markdown, html, any shortcodes.
 {{</* /tabs */>}}
 {{< /code >}}
 
+### Audience
+
+With this feature you can add content in the source which is only visible if you run the website with a specific configuration. Now you can have inline tips for the instructor.
+
+{{% audience "instructor" %}}
+> The text you're now reading is only visible if "instructor" is in the list .Params.audience in the config file of hugo.
+{{% /audience %}}
+
+```text
+{{</* audience "instructor" */>}}
+Renders html, for example inner shortcodes.
+{{</* /audience */>}}
+```
+
+```text
+{{%/* audience "instructor" */%>}}
+Renders markdown but not inner shortcodes.
+{{%/* /audience */%}}
+```
+
 ### Practice Questions
 
 With this shortcode you can add a practice question. Basically a quick validation of the trainees' knowledge while learning. Of course you can also create a special page with 20 questions on it as a practice test. Features:

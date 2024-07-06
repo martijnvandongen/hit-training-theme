@@ -1,0 +1,10 @@
+{{- if in .Site.Params.audience (.Get 0) }}
+{{- .Inner }}
+{{- else }}
+{{- "<!-- content hidden, accessible for: " | safeHTML }}
+{{- .Get 0 | safeHTML }}
+{{- " -->" | safeHTML }}
+{{- if (.Get 1) }}
+{{ (.Get 1) | safeHTML }}
+{{- end }}
+{{- end }}
