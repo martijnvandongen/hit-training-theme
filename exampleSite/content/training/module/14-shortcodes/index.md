@@ -156,7 +156,7 @@ answers:
 question: |
     Which which are planets?
 explanation: |
-    Pluto is not a planet anymore. [Check this news](https://www.britannica.com/story/why-is-pluto-no-longer-a-planet)
+    Pluto is not a planet anymore. [Source](https://...)
 shuffle_answers: False
 answer_validation: False
 answers:
@@ -170,3 +170,16 @@ answers:
 {{%/* /question */%}}
 ```
 
+### Partial
+
+The feature **partial** in hugo is only available in templates. With this hack, you can also include partials in your content. The sentence below is just an example.
+
+{{< partial "content/example" >}}
+<br/>
+```text
+{{</* partial "content/example" */>}}
+```
+
+1. Create a partial file in: layouts/partials/content/example.html
+2. Add content or logic to the file
+3. Use the shortcode `partial` to include the partial where you like
